@@ -29,9 +29,7 @@ export function Header() {
         <div className="flex-1 flex items-center gap-4 max-w-2xl">
           <div className={`relative flex-1 transition-all duration-300 ${searchFocused ? "scale-105" : "scale-100"}`}>
             <Search
-              className={`absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground transition-colors ${
-                searchFocused ? "text-primary" : ""
-              }`}
+              className={`absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground transition-colors ${searchFocused ? "text-primary" : ""}`}
             />
             <Input
               type="search"
@@ -51,11 +49,7 @@ export function Header() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="hover:scale-110 transition-all duration-200"
             >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           )}
 
@@ -73,9 +67,7 @@ export function Header() {
                   className={`h-5 w-5 transition-all duration-200 ${cartHovered ? "text-primary scale-110" : ""}`}
                 />
                 <Badge
-                  className={`absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs transition-all duration-200 ${
-                    cartHovered ? "scale-125 bg-primary" : ""
-                  }`}
+                  className={`absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs transition-all duration-200 ${cartHovered ? "scale-125 bg-primary" : ""}`}
                 >
                   3
                 </Badge>
@@ -90,9 +82,14 @@ export function Header() {
               </Link>
             </Button>
           ) : (
-            <Button className="hover:scale-105 transition-transform" asChild>
-              <Link href="/auth/login">Login</Link>
-            </Button>
+            <div className="flex gap-2">
+              <Button className="hover:scale-105 transition-transform" asChild>
+                <Link href="/auth/login">Sign In</Link>
+              </Button>
+              <Button className="hover:scale-105 transition-transform" variant="secondary" asChild>
+                <Link href="/auth/register">Register</Link>
+              </Button>
+            </div>
           )}
         </div>
       </div>
