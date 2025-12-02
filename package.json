@@ -2,6 +2,22 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "homepage": "https://github.com/Shadx-007/BusinessWebsite#readme",
+  "bugs": {
+    "url": "https://github.com/Shadx-007/BusinessWebsite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shadx-007/BusinessWebsite.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -47,7 +63,7 @@
     "geist": "^1.3.1",
     "input-otp": "latest",
     "lucide-react": "^0.454.0",
-    "next": "14.2.25",
+    "next": "15.0.3",
     "next-themes": "latest",
     "react": "^19",
     "react-day-picker": "latest",

@@ -1,1 +1,56 @@
-node_modules
+# Dependencies
+/node_modules/
+
+# Build output
+/.next/
+out/
+dist/
+
+# Production
+/build/
+
+# Next.js cache
+.next/
+.vercel/
+.swc/
+
+# TypeScript
+*.tsbuildinfo
+
+# Env files
+.env
+.env.*.local
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# IDE specific
+.idea/
+*.iml
+
+# Misc
+.next-static/
+coverage/
+*.log
+
+# Generated during next export
+/export/
+
+# Optional: If you use TurboRepo
+.turbo/
+
+# Optional: If you use Firebase
+.firebase/
+**/firebase-debug.log
