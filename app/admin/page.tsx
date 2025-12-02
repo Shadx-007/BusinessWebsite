@@ -1,9 +1,24 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { BarChart3, Package, ShoppingCart, Users, DollarSign, TrendingUp, AlertCircle, Plus } from "lucide-react"
+import {
+  BarChart3,
+  Package,
+  ShoppingCart,
+  Users,
+  DollarSign,
+  TrendingUp,
+  AlertCircle,
+  Plus,
+} from "lucide-react"
 import Link from "next/link"
 import { useAuth } from "@/components/auth-provider"
 
@@ -105,11 +120,14 @@ const quickActions = [
 export default function AdminDashboard() {
   const { user } = useAuth()
 
+  // ACCESS CONTROL
   if (!user?.isAdmin) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-2xl font-bold mb-4">Access Denied</h1>
-        <p className="text-muted-foreground mb-4">You don't have permission to access this page.</p>
+        <p className="text-muted-foreground mb-4">
+          You don't have permission to access this page.
+        </p>
         <Button asChild>
           <Link href="/">Go Home</Link>
         </Button>
@@ -119,18 +137,22 @@ export default function AdminDashboard() {
 
   return (
     <div className="container mx-auto px-4 py-8 space-y-8">
-      {/* Header */}
+      {/* HEADER */}
       <div>
         <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
-        <p className="text-muted-foreground">Manage your e-commerce store from this central hub.</p>
+        <p className="text-muted-foreground">
+          Manage your e-commerce store from this central hub.
+        </p>
       </div>
 
-      {/* Stats Grid */}
+      {/* STATS GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat) => (
           <Card key={stat.title}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                {stat.title}
+              </CardTitle>
               <stat.icon className={`h-4 w-4 ${stat.color}`} />
             </CardHeader>
             <CardContent>
@@ -144,12 +166,15 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      {/* Quick Actions */}
+      {/* QUICK ACTIONS */}
       <div>
         <h2 className="text-2xl font-bold mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {quickActions.map((action) => (
-            <Card key={action.title} className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card
+              key={action.title}
+              className="hover:shadow-lg transition-shadow cursor-pointer"
+            >
               <Link href={action.href}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
@@ -158,7 +183,9 @@ export default function AdminDashboard() {
                     </div>
                     <div>
                       <h3 className="font-semibold">{action.title}</h3>
-                      <p className="text-sm text-muted-foreground">{action.description}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {action.description}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -169,7 +196,7 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* Recent Orders */}
+        {/* RECENT ORDERS */}
         <div>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">Recent Orders</h2>
@@ -182,7 +209,12 @@ export default function AdminDashboard() {
             <CardContent className="p-0">
               <div className="space-y-0">
                 {recentOrders.map((order, index) => (
-                  <div key={order.id} className={`p-4 ${index !== recentOrders.length - 1 ? "border-b" : ""}`}>
+                  <div
+                    key={order.id}
+                    className={`p-4 ${
+                      index !== recentOrders.length - 1 ? "border-b" : ""
+                    }`}
+                  >
                     <div className="flex justify-between items-center">
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
@@ -192,19 +224,25 @@ export default function AdminDashboard() {
                               order.status === "Delivered"
                                 ? "default"
                                 : order.status === "Shipped"
-                                  ? "secondary"
-                                  : "outline"
+                                ? "secondary"
+                                : "outline"
                             }
                           >
                             {order.status}
                           </Badge>
                         </div>
-                        <p className="text-sm text-muted-foreground">{order.customer}</p>
-                        <p className="text-xs text-muted-foreground">{order.email}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {order.customer}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {order.email}
+                        </p>
                       </div>
                       <div className="text-right">
                         <p className="font-bold">${order.total}</p>
-                        <p className="text-xs text-muted-foreground">{order.date}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {order.date}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -214,7 +252,7 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
-        {/* Low Stock Alert */}
+        {/* LOW STOCK */}
         <div>
           <div className="flex items-center gap-2 mb-4">
             <h2 className="text-2xl font-bold">Low Stock Alert</h2>
@@ -223,18 +261,23 @@ export default function AdminDashboard() {
 
           <Card>
             <CardHeader>
-              <CardDescription>Products running low on inventory</CardDescription>
+              <CardDescription>
+                Products running low on inventory
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {lowStockProducts.map((product) => (
-                <div key={product.sku} className="flex justify-between items-center">
+                <div
+                  key={product.sku}
+                  className="flex justify-between items-center"
+                >
                   <div>
                     <p className="font-medium">{product.name}</p>
-                    <p className="text-sm text-muted-foreground">SKU: {product.sku}</p>
+                    <p className="text-sm text-muted-foreground">
+                      SKU: {product.sku}
+                    </p>
                   </div>
-                  <div className="text-right">
-                    <Badge variant="destructive">{product.stock} left</Badge>
-                  </div>
+                  <Badge variant="destructive">{product.stock} left</Badge>
                 </div>
               ))}
               <Button className="w-full" variant="outline" asChild>
